@@ -1,0 +1,162 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background: #f4f4f4;
+    font-family: "Montserrat", sans-serif;
+}
+
+.banner {
+    background: #a770ef;
+    background: -webkit-linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
+    background: linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
+}
+
+.navbar {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    z-index:1;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.navbar-nav :hover {
+   
+}
+.navbar-nav .nav-link {
+    color: #333;
+    font-size: 1rem;
+    padding: 10px 15px;
+
+}
+
+    .navbar-nav .nav-link:hover {
+        color: #000;
+        background-color: lightgreen;
+    }
+
+/*main {
+    padding: 20px 0;
+}*/
+
+footer {
+    background-color: #f9f9f9;
+    padding: 20px 0;
+}
+
+    footer a {
+        color: #333;
+    }
+
+.nav-link.your-name-class {
+    color: #ff0000;
+}
+
+img {
+    aspect-ratio: 4/3;
+    object-fit: cover;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.navMenu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+    .navMenu a {
+        color: #f6f4e6;
+        text-decoration: none;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        font-weight: 500;
+        display: inline-block;
+        width: 80px;
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+    }
+
+        .navMenu a:hover {
+            color: #fddb3a;
+        }
+
+    .navMenu .dot {
+        width: 6px;
+        height: 6px;
+        background: #fddb3a;
+        border-radius: 50%;
+        opacity: 0;
+        -webkit-transform: translateX(30px);
+        transform: translateX(30px);
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .navMenu a:nth-child(1):hover ~ .dot {
+        -webkit-transform: translateX(30px);
+        transform: translateX(30px);
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        opacity: 1;
+    }
+
+    .navMenu a:nth-child(2):hover ~ .dot {
+        -webkit-transform: translateX(110px);
+        transform: translateX(110px);
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        opacity: 1;
+    }
+
+    .navMenu a:nth-child(3):hover ~ .dot {
+        -webkit-transform: translateX(200px);
+        transform: translateX(200px);
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        opacity: 1;
+    }
+
+    .navMenu a:nth-child(4):hover ~ .dot {
+        -webkit-transform: translateX(285px);
+        transform: translateX(285px);
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        opacity: 1;
+    }
+
+.heroImage {
+    background-image: url('https://media.istockphoto.com/id/949190756/photo/various-sport-equipments-on-grass.jpg?b=1&s=612x612&w=0&k=20&c=Si6Ms85w926YDZqaifSA8O3FHFLy4uDUEAcjoqIXnfY=');
+    background-size: cover;
+    background-repeat: no-repeat;
+    aspect-ratio: 21/9;
+}
+/* Height for devices larger than 992px */
+@media (min-width: 992px) {
+    #intro-example {
+        height: 600px;
+    }
+}

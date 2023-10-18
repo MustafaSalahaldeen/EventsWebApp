@@ -1,0 +1,137 @@
+﻿@model EventsApp.Models.LoginModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (!string.IsNullOrEmpty((string)ViewData["AlertMessage"]))
+{
+    <script>
+        window.alert('@(ViewData["AlertMessage"])');
+    </script>
+}
+
+@* <h1>Login</h1>
+
+<h4>User</h4>
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-outline mt-4">
+                    <input asp-for="UserName" type="text" id="form12" class="form-control" />
+                    <label asp-for="UserName" class="form-label" for="form12">UserName</label>
+
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-outline mt-4">
+                <input asp-for="Password" type="password" id="form12" class="form-control" />
+                <label asp-for="Password" class="form-label" for="form12">Password</label>
+
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group row justify-content-center mt-3">
+                <div class="col-4">
+
+                    <input type="submit" value="Login" class="btn btn-primary " />
+                </div>
+                <div class="col-4 text-center align-self-center">
+                    <a asp-action="Index">Back to List</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+ *@
+
+<head>
+    <style>
+        .login,
+        .image {
+            min-height: 100vh;
+        }
+
+        .bg-image {
+            background-image: url('https://images.pexels.com/photos/9192233/pexels-photo-9192233.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-position: center center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row no-gutter">
+            <!-- The image half -->
+            <div class="col-md-6 d-none d-md-flex bg-image"></div>
+
+
+            <!-- The content half -->
+            <div class="col-md-6 bg-light">
+                <div class="login d-flex align-items-center py-5">
+
+                    <!-- Demo content-->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-10 col-xl-7 mx-auto">
+                                <h3 class="display-4">Login page!</h3>
+                                <p class="text-muted mb-4"></p>
+                                <form asp-action="Login" asp-route-returnurl="@Context.Request.Query["ReturnUrl"]">
+                                    <div class="form-group mb-3">
+                                        <input asp-for="UserName" type="text" id="form12" class="form-control" />
+                                        <label asp-for="UserName" class="form-label" for="form12">UserName</label>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <input asp-for="Password" type="password" id="form12" class="form-control" />
+                                        <label asp-for="Password" class="form-label" for="form12">Password</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox mb-3">
+                                        <input id="customCheck1" type="checkbox" checked class="custom-control-input">
+                                        <label for="customCheck1" class="custom-control-label">Remember password</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign in</button>
+                                    <div class="text-center d-flex justify-content-between mt-4">
+                                        <p>
+                                            Snippet by <a href="https://bootstrapious.com/snippets" class="font-italic text-muted">
+                                                <u>Boostrapious</u>
+                                            </a>
+                                        </p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div><!-- End -->
+
+                </div>
+            </div><!-- End -->
+
+        </div>
+    </div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ]
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

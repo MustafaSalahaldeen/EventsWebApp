@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<head>
+    <style>
+        body,
+        html {
+            font-family: "Henny Penny", cursive;
+            color: #274dff;
+        }
+
+        h1 {
+            margin: auto;
+            letter-spacing: 0.0015em;
+            font-size: 5em;
+            text-shadow: 0 1px #8da1ff, -1px 0 #c0cbff, -1px 2px #8da1ff, -2px 1px #c0cbff, -2px 3px #8da1ff, -3px 2px #c0cbff, -3px 4px #8da1ff, -4px 3px #c0cbff, -4px 5px #8da1ff, -5px 4px #c0cbff, -5px 6px #8da1ff, -6px 5px #c0cbff, -6px 7px #8da1ff, -7px 6px #c0cbff, -7px 8px #8da1ff, -8px 7px #c0cbff;
+            text-align: center;
+        }
+
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+        /* Add some content at the bottom of the video/page */
+        .content {
+            position: fixed;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #f1f1f1;
+            width: auto;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <video autoplay muted loop id="myVideo">
+            <source src="https://player.vimeo.com/external/363624829.sd.mp4?s=aaa1e698aaf493ff35bbd568c9e476668e669518&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+        </video>
+    </div>
+    <header>
+        <!-- Intro settings -->
+        <!-- Background image -->
+        <div id="intro-example" class="p-5 text-center bg-image" style="background-size:cover">
+            <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);height:200px">
+                <div class="d-flex justify-content-center align-items-center h-100">
+                    <div class="text-white">
+                        <h1 class="mb-3 units">Booking Event</h1>
+                        <h5 class="mb-4">
+                            for more happiness
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Background image -->
+    </header>
+
+</body>

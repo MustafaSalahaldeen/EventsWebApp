@@ -1,0 +1,106 @@
+﻿@model Event
+@using Day11Identity.IdentityData;
+@inject EventIdentityDbContext _context;
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Portfolio Item Heading -->
+    <h6 class="my-4">
+        Category>@ViewBag.Category
+    </h6>
+    <div class="row justify-content">
+        <div class="col-md-6">
+            <h1>
+                @Model.Name
+            </h1>
+        </div>
+        <div class="col-md-6 end-0">
+            @{
+                List<EventUserRelation> eventUserRelations = ViewBag.EventUserRlation;
+                var user = _context.Users.Where(d => d.UserName == User.Identity.Name).ToList().FirstOrDefault();
+                if (eventUserRelations.Find(m => m.UserId == user.Id) != null)
+                {
+                    <a class="btn btn-sm btn-outline-dark justify-content-center mt-3" asp-controller="Events" asp-action="UnParticipate" asp-route-Id="@eventUserRelations.Find(m => m.UserId == user.Id).Id"> UnParticipated </a>
+                }
+                else
+                {
+                    <a class="btn btn-sm btn-success justify-content-center" asp-controller="Events" asp-action="Participate" asp-route-EventId="@Model.Id"> Participate </a>
+                }
+            }
+        </div>
+    </div>
+
+    
+
+    <!-- Portfolio Item Row -->
+    <div class="row">
+        
+        @{
+            List<EventImage> Images = ViewBag.Image;
+            string[] Url = new string[Images.Count];
+            int count = 0;
+
+            try
+            {
+
+                var images = Images.FindAll(m => m.EventId == Model.Id).ToList();
+                foreach (var item in images)
+                {
+                    if (images != null)
+                    {
+                        Url[count] = "data:image/jpeg;base64," + item.Url;
+                    }
+                    else
+                    {
+                        Url[count] = "https://www.mykite.in/kb/NoImageFound.jpg.png";
+                    }
+                    count++;
+                }
+            }
+        catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Url[count] = "https://www.mykite.in/kb/NoImageFound.jpg.png";
+            }
+
+        }
+           
+        <div class="row justify-content-between">
+            <div>
+                <p> @Model.Description </p>
+
+                <ul>
+                </ul>
+            </div>
+            <div class="flex-column">
+                <div class="badge badge-primary px-3 rounded-pill font-weight-normal">Place | Amman</div>
+
+                <div class="badge badge-primary px-3 rounded-pill font-weight-normal">Start Date | @(Model.StartDate.Day)/@(Model.StartDate.Month)/@(Model.StartDate.Year) @(Model.StartDate.Hour):@(Model.StartDate.Minute)</div>
+                <div class="badge badge-danger px-3 rounded-pill font-weight-normal">End DATE | @(Model.EndDate.Day)/@(Model.EndDate.Month)/@(Model.EndDate.Year) @(Model.EndDate.Hour):@(Model.EndDate.Minute)</div>
+            </div>
+        </div>
+        
+
+    </div>
+    <!-- /.row -->
+    <!-- Related Projects Row -->
+    <h3 class="my-4">Photos</h3>
+
+    <div class="row">
+
+            <a href="#">
+                @foreach (var item in Url)
+                {
+                    <img class="img-fluid" src="@item" alt="" height="200px" width="200px">
+                }
+            </a>
+
+    </div >
+   
+   
+
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->

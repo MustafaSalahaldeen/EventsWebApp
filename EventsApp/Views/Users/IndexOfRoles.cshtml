@@ -1,0 +1,33 @@
+﻿@model IEnumerable<EventsApp.Models.RoleModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="AddRole">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Role Name</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+           
+        <tr>
+
+                <td>
+                    @item.RoleName
+                </td>
+            <td>
+                    <a asp-action="DeleteRole" asp-route-rolename="@item.RoleName">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
